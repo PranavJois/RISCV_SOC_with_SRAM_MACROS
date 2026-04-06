@@ -24,10 +24,6 @@ module datapath_unit #(
     parameter RESET_ADDR = 0,
     parameter STACKADDR  = 32'hffff_ffff
 ) (
-`ifdef USE_POWER_PINS
-    inout wire vccd1,
-    inout wire vssd1,
-`endif
     input wire clk,
     input wire resetn,
 
@@ -108,10 +104,6 @@ module datapath_unit #(
   register_file #(
       .REGISTER_DEPTH(RV32E ? 16 : 32)
   ) register_file_I (
-`ifdef USE_POWER_PINS
-      .vccd1(vccd1),
-      .vssd1(vssd1),
-`endif
       .clk(clk),
       .we (RegWrite),
       .A1 (Rs1),
