@@ -24,10 +24,6 @@ module kianv_harris_mc_edition #(
     parameter STACKADDR  = 0,
     parameter RV32E      = 0
 ) (
-`ifdef USE_POWER_PINS
-    inout wire vccd1,
-    inout wire vssd1,
-`endif
     input  wire        clk,
     input  wire        resetn,
     output wire        mem_valid,
@@ -176,10 +172,6 @@ module kianv_harris_mc_edition #(
       .STACKADDR (STACKADDR),
       .RV32E     (RV32E)
   ) datapath_unit_I (
-`ifdef USE_POWER_PINS
-      .vccd1 (vccd1),
-      .vssd1 (vssd1),
-`endif
       .clk   (clk),
       .resetn(resetn),
 
