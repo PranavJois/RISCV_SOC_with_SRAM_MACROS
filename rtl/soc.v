@@ -21,10 +21,6 @@
 /* verilator lint_off PINCONNECTEMPTY */
 /* verilator lint_off UNUSEDSIGNAL */
 module soc (
-`ifdef USE_POWER_PINS
-    inout wire vccd1,
-    inout wire vssd1,
-`endif
     input  wire       clk_osc,
     output wire       uart_tx,
     input  wire       uart_rx,
@@ -303,10 +299,6 @@ module soc (
   wire access_fault = cpu_mem_valid & (!is_io || !is_sdram);
 
   kianv_harris_mc_edition #(.RESET_ADDR(`RESET_ADDR)) kianv_I (
-`ifdef USE_POWER_PINS
-      .vccd1 (vccd1),
-      .vssd1 (vssd1),
-`endif
       .clk         (clk),
       .resetn      (resetn),
       .mem_ready   (cpu_mem_ready),
@@ -368,3 +360,4 @@ module soc (
 endmodule
 /* verilator lint_on PINCONNECTEMPTY */
 /* verilator lint_on UNUSEDSIGNAL */
+
