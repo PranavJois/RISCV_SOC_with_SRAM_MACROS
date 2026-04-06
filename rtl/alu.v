@@ -92,3 +92,4 @@ module alu (
 
   assign zero = !result[0];
 endmodule
+
